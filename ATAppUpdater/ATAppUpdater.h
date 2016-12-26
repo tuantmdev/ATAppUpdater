@@ -53,4 +53,9 @@ __attribute((deprecated("Use 'showUpdateWithForce' or 'showUpdateWithConfirmatio
 /** Set the UIAlertView cancel button's title. NSLocalizedString() supported. */
 @property (nonatomic, weak) NSString *alertCancelButtonTitle;
 
+/** The two-letter country code for the store you want to search. 
+    The search uses the default store front for the specified country. 
+    For example: US. The default is US.*/
+@property (nonatomic, weak) NSString *country;
+
 @end

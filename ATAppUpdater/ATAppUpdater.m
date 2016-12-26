@@ -49,6 +49,7 @@
         self.alertMessage = @"Version %@ is available on the AppStore.";
         self.alertUpdateButtonTitle = @"Update";
         self.alertCancelButtonTitle = @"Not Now";
+        self.country = @"US";
     }
     return self;
 }
@@ -119,7 +120,7 @@ NSString *appStoreURL = nil;
     NSDictionary *bundleInfo = [[NSBundle mainBundle] infoDictionary];
     NSString *bundleIdentifier = bundleInfo[@"CFBundleIdentifier"];
     NSString *currentVersion = bundleInfo[@"CFBundleShortVersionString"];
-    NSURL *lookupURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/lookup?bundleId=%@", bundleIdentifier]];
+    NSURL *lookupURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/lookup?bundleId=%@&country=%@", bundleIdentifier, self.country]];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void) {
         
